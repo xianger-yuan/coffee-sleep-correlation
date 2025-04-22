@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee vs Sleep Correlation Explorer</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h2>☕ Coffee vs Sleep</h2>
+  <div id="plot" style="width:800px;height:500px;"></div>
+  <script>
+    let x = [1, 2, 3, 4, 5];
+    let y = [8, 7, 6, 5, 4];
+    const trace = {
+      x: x,
+      y: y,
+      mode: 'markers+text',
+      type: 'scatter',
+      text: x.map((xi, i) => `☕${xi}, 😴${y[i]}h`),
+      textposition: "top center",
+      marker: { size: 18, color: '#60a5fa' },
+      name: 'Person'
+    };
+    const layout = {
+      title: 'Coffee (cups) vs Sleep (hours)',
+      xaxis: { title: "Coffee Cups" },
+      yaxis: { title: "Sleep Hours" }
+    };
+    Plotly.newPlot('plot', [trace], layout);
+  </script>
+</body>
+</html>
